@@ -52,14 +52,14 @@ const projects = [
         category: 'web',
         image: 'https://picsum.photos/800/600?random=1',
         description: 'Full-stack e-commerce solution with advanced features',
-        link: '#'
+        link: 'https://brownasociados.com/'
     },
     {
         title: 'Fitness App',
         category: 'app',
         image: 'https://picsum.photos/800/600?random=2',
         description: 'Mobile fitness tracking application',
-        link: '#'
+        link: 'https://monkyd.com/'
     },
     {
         title: 'Brand Identity',
