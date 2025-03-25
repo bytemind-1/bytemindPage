@@ -49,52 +49,26 @@ body {
 
 /* Navigation */
 .navbar {
-    padding: 25px 50px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
     position: fixed;
-    width: 100%;
     top: 0;
-    z-index: 1000;
-    background: rgba(0, 0, 0, 0.95);
+    width: 100%;
+    padding: 2rem 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+    transition: all 0.3s ease;
+}
+
+.navbar.scrolled {
+    background: rgba(10, 10, 10, 0.95);
+    padding: 1rem 5%;
+    backdrop-filter: blur(10px);
 }
 
 .nav-brand {
-    font-size: 2.5rem;
+    font-size: 1.8rem;
     font-weight: 700;
-}
-
-.nav-menu {
-    display: flex;
-    gap: 40px;
-}
-
-.nav-link {
-    font-size: 1.2rem;
-    text-decoration: none;
-    color: white;
-    padding: 10px 15px;
-    transition: color 0.3s ease;
-}
-
-.nav-link:hover {
-    color: #00ff00; /* Or whatever accent color you prefer */
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-    .navbar {
-        padding: 20px 25px;
-    }
-    
-    .nav-brand {
-        font-size: 2rem;
-    }
-    
-    .nav-menu {
-        gap: 20px;
-    }
 }
 
 .nav-brand span {
@@ -455,28 +429,40 @@ body {
 /* Contact Section */
 .contact {
     padding: 8rem 5%;
+    background: var(--dark-gray);
 }
 
-.contact-container {
-    display: grid;
-    grid-template-columns: 1.5fr 1fr;
-    gap: 4rem;
+.contact-form-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
 }
 
 .form-group {
     position: relative;
-    margin-bottom: 2rem;
 }
 
 .form-group input,
 .form-group textarea {
     width: 100%;
     padding: 1rem;
-    background: var(--dark-gray);
-    border: none;
-    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
     color: var(--white);
     font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.form-group textarea {
+    min-height: 150px;
+    resize: vertical;
 }
 
 .form-group label {
@@ -486,13 +472,20 @@ body {
     color: var(--white);
     opacity: 0.5;
     transition: all 0.3s ease;
+    pointer-events: none;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: var(--accent);
+    background: rgba(255, 255, 255, 0.1);
 }
 
 .form-group input:focus + label,
 .form-group textarea:focus + label,
 .form-group input:valid + label,
 .form-group textarea:valid + label {
-    transform: translateY(-1.5rem);
+    transform: translateY(-2rem);
     font-size: 0.8rem;
     color: var(--accent);
 }
@@ -500,97 +493,25 @@ body {
 /* Footer */
 .footer {
     background: var(--dark-gray);
-    padding: 6rem 5% 2rem;
+    padding: 4rem 5% 2rem;
 }
 
-.footer-grid {
-    display: grid;
-    grid-template-columns: 2fr 2fr 1fr;
-    gap: 4rem;
-    margin-bottom: 3rem;
-}
-
-.footer-brand h3 {
-    font-size: 2rem;
-    margin-bottom: 1rem;
-}
-
-.footer-social {
-    margin-top: 2rem;
+.footer-content {
     display: flex;
-    gap: 1.5rem;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
 }
 
 .footer-social a {
     color: var(--white);
     font-size: 1.5rem;
+    margin-left: 1.5rem;
     transition: color 0.3s ease;
 }
 
 .footer-social a:hover {
     color: var(--accent);
-}
-
-.footer h4 {
-    font-size: 1.2rem;
-    margin-bottom: 1.5rem;
-    color: var(--accent);
-}
-
-.contact-items {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-}
-
-.contact-item {
-    display: flex;
-    align-items: flex-start;
-    gap: 1rem;
-}
-
-.contact-item i {
-    color: var(--accent);
-    font-size: 1.2rem;
-    margin-top: 0.3rem;
-}
-
-.footer-links ul {
-    list-style: none;
-    padding: 0;
-}
-
-.footer-links li {
-    margin-bottom: 1rem;
-}
-
-.footer-links a {
-    color: var(--white);
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-.footer-links a:hover {
-    color: var(--accent);
-}
-
-.footer-bottom {
-    padding-top: 2rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    text-align: center;
-}
-
-@media (max-width: 992px) {
-    .footer-grid {
-        grid-template-columns: 1fr 1fr;
-    }
-}
-
-@media (max-width: 768px) {
-    .footer-grid {
-        grid-template-columns: 1fr;
-        gap: 3rem;
-    }
 }
 
 /* Responsive Design */
@@ -909,79 +830,3 @@ body::before {
         rgba(26, 26, 26, 0.95)
     );
 }
-
-/* Floating WhatsApp Button */
-.whatsapp-float {
-    position: fixed;
-    bottom: 40px;
-    right: 40px;
-    background: linear-gradient(45deg, #25D366, #128C7E);
-    color: white;
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 28px;
-    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    z-index: 1000;
-    animation: float 3s ease-in-out infinite;
-    text-decoration: none; /* Added to remove underline */
-}
-
-.whatsapp-float i {
-    font-size: 32px; /* Added for icon size */
-    line-height: 1;
-}
-
-.whatsapp-float:hover {
-    transform: translateY(-5px) scale(1.1);
-    box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
-    color: white;
-}
-
-.whatsapp-float::before {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-    background: rgba(37, 211, 102, 0.2);
-    animation: pulse 2s infinite;
-}
-
-@keyframes pulse {
-    0% {
-        transform: scale(1);
-        opacity: 1;
-    }
-    100% {
-        transform: scale(1.5);
-        opacity: 0;
-    }
-}
-
-.whatsapp-btn {
-    background: #25D366;
-    color: #fff;
-    padding: 12px 30px;
-    border-radius: 50px;
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    font-size: 16px;
-    font-weight: 500;
-    transition: all 0.3s;
-  }
-  
-  .whatsapp-btn:hover {
-    background: #1da851;
-    color: #fff;
-    transform: translateY(-2px);
-  }
-  
-  .whatsapp-btn i {
-    font-size: 20px;
-  }

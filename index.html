@@ -10,9 +10,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
     <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
 
 <body>
@@ -216,24 +216,47 @@
         </div>
     </section>
 
-    <!-- Add the floating WhatsApp button -->
-    <a href="https://wa.me/593939039191" target="_blank" class="whatsapp-float">
-        <i class="fab fa-whatsapp"></i>
-    </a>
+    <section id="contact" class="contact">
+        <div class="section-header">
+            <span class="subtitle">Contacto</span>
+            <h2>Envíanos un Mensaje</h2>
+        </div>
+        <div class="contact-form-container">
+            <form id="contactForm" class="contact-form">
+                <div class="form-group">
+                    <input type="text" id="name" name="name" required>
+                    <label for="name">Nombre</label>
+                </div>
+                <div class="form-group">
+                    <input type="email" id="email" name="email" required>
+                    <label for="email">Email</label>
+                </div>
+                <div class="form-group">
+                    <input type="text" id="subject" name="subject" required>
+                    <label for="subject">Asunto</label>
+                </div>
+                <div class="form-group">
+                    <textarea id="message" name="message" required></textarea>
+                    <label for="message">Mensaje</label>
+                </div>
+                <button type="submit" class="btn primary">Enviar Mensaje</button>
+            </form>
+        </div>
+    </section>
 
     <footer class="footer">
-        <div class="footer-grid">
+        <div class="footer-content">
             <div class="footer-brand">
                 <h3>ByteMind</h3>
                 <p>Creando excelencia digital desde 2013</p>
-                <div class="footer-social">
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="#"><i class="fab fa-github"></i></a>
-                </div>
+                <p>&copy; 2023 ByteMind. Todos los derechos reservados.</p>
             </div>
-
+            <div class="footer-social">
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#"><i class="fab fa-github"></i></a>
+            </div>
             <div class="footer-contact">
                 <h4>Información de Contacto</h4>
                 <div class="contact-items">
@@ -247,23 +270,17 @@
                     </div>
                 </div>
             </div>
-
-            <div class="footer-links">
-                <h4>Enlaces Rápidos</h4>
-                <ul>
-                    <li><a href="#home">Inicio</a></li>
-                    <li><a href="#about">Acerca de</a></li>
-                    <li><a href="#services">Servicios</a></li>
-                    <li><a href="#work">Trabajos</a></li>
-                </ul>
-            </div>
-        </div>
-        
-        <div class="footer-bottom">
-            <p>&copy; 2023 ByteMind. Todos los derechos reservados.</p>
         </div>
     </footer>
 
     <script src="script.js"></script>
+    <script src="contact.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script>
+        (function () {
+            emailjs.init("wWfdv6fWCBO9rl-l-");
+        })();
+    </script>
 </body>
+
 </html>
