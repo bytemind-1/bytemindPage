@@ -50,23 +50,23 @@ const projects = [
     {
         title: 'E-commerce Platform',
         category: 'web',
-        image: 'https://picsum.photos/800/600?random=1',
+        image: '/assets/brownseguros.png', // Remove the dot, start with forward slash
         description: 'Full-stack e-commerce solution with advanced features',
         link: 'https://brownasociados.com/'
     },
     {
-        title: 'Fitness App',
-        category: 'app',
-        image: 'https://picsum.photos/800/600?random=2',
-        description: 'Mobile fitness tracking application',
-        link: 'https://monkyd.com/'
+        title: 'Enterprise Web',
+        category: 'web',
+        image: '/assets/cafrilosa.png', // Remove the dot, start with forward slash
+        description: 'Diseño web para una pagina',
+        link: 'https://palegoldenrod-cormorant-373069.hostingersite.com/'
     },
     {
-        title: 'Brand Identity',
+        title: 'Csabor',
         category: 'design',
-        image: 'https://picsum.photos/800/600?random=3',
-        description: 'Complete brand identity design system',
-        link: '#'
+        image: '/assets/csabor.png',
+        description: 'Completar el diseño de una empresa con una pagina web',
+        link: 'https://darkred-chicken-468800.hostingersite.com/preparacion.html'
     },
     {
         title: 'News Portal',
@@ -100,12 +100,14 @@ const initProjectCarousel = () => {
         carousel.append(`
             <div class="project-card">
                 <div class="project-image">
-                    <img src="${project.image}" alt="${project.title}">
+                    <img src="${project.image}" 
+                         alt="${project.title}"
+                         loading="lazy">
                     <div class="project-overlay">
                         <span class="project-category">${project.category}</span>
                         <h3>${project.title}</h3>
                         <p>${project.description}</p>
-                        <a href="${project.link}" class="btn primary">View Project</a>
+                        <a href="${project.link}" class="btn primary" target="_blank">View Project</a>
                     </div>
                 </div>
             </div>
